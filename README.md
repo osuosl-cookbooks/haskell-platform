@@ -1,68 +1,29 @@
 haskell-platform Cookbook
 =========================
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+This cookbook installs the `haskell-platform` package.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
 
-e.g.
-#### packages
-- `toaster` - haskell-platform needs toaster to brown your bagel.
+This cookbook depends on the yum-epel cookbook for rhel-based machines. Otherwise it assumes no repositories need to be added in order to install the `haskell-platform` cookbook.
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
 
-e.g.
-#### haskell-platform::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['haskell-platform']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+This cookbook has no attributes currently.
 
 Usage
 -----
-#### haskell-platform::default
-TODO: Write usage instructions for each cookbook.
 
-e.g.
-Just include `haskell-platform` in your node's `run_list`:
-
-```json
-{
-  "name":"my_node",
-  "run_list": [
-    "recipe[haskell-platform]"
-  ]
-}
-```
+Include `haskell-platform::default` to have haskell-platform installed.
 
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
 
-e.g.
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
+If you want to contribute:
 
-License and Authors
--------------------
-Authors: TODO: List authors
+1. Fork the repository on Github.
+2. Work on your changes in your repository.
+3. Open a pull request.
+4. (Optional) Contact us on #osuosl on freenode to poke us about the pull request.
