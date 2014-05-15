@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: haskell-platform
-# Recipe:: default
+# Attributes: default
 #
 # Copyright 2014, Oregon State University
 #
@@ -16,15 +16,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-case node['platform_family']
-when 'rhel'
-  if node['haskell-platform']['repo_source'] == "epel"
-    include_recipe 'yum-epel'
-  elsif node['haskell-platform']['repo_source'] == "justhub"
-    include_recipe 'haskell-platform::justhub'
-  else
-    raise ArgumentError, "Unknown value '#{node['haskell-platform']['repo_source']}' was passed"
-  end
-end
+default['haskell-platform']['repo_source'] = "epel"
 
-package "#{node['haskell-platform']['package_name']}"
+if node['haskell-platform']['repo_source'] == "justhub"
+  if node['platform_family'] == "rhel"
+    default['haskell-platform']['package_name'] = "haskell"
+  else
+    default['haskell-platform']['package_name'] = "haskell-platform"
+  end
+else
+  default['haskell-platform']['package_name'] = "haskell-platform"
+end

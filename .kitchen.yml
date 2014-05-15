@@ -12,5 +12,13 @@ platforms:
 suites:
   - name: default
     run_list:
+      - apt::default
       - recipe[haskell-platform::default]
     attributes:
+  - name: justhub
+    run_list:
+      - apt::default
+      - recipe[haskell-platform::default]
+    attributes:
+      haskell-platform:
+        repo_source: "justhub"

@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: haskell-platform
-# Recipe:: default
+# Recipe:: justhub
 #
 # Copyright 2014, Oregon State University
 #
@@ -17,14 +17,13 @@
 # limitations under the License.
 #
 case node['platform_family']
-when 'rhel'
-  if node['haskell-platform']['repo_source'] == "epel"
-    include_recipe 'yum-epel'
-  elsif node['haskell-platform']['repo_source'] == "justhub"
-    include_recipe 'haskell-platform::justhub'
-  else
-    raise ArgumentError, "Unknown value '#{node['haskell-platform']['repo_source']}' was passed"
+when "rhel"
+  include_recipe "yum"
+
+  yum_repository "justhub" do
+    description "JustHub Haskell Repository"
+    baseurl "http://sherkin.justhub.org/el#{node['platform_version'].to_i}"
+    gpgkey "http://justhub.org/hub-lib/RPM-GPG-KEY-justhub-mail"
+    action :create
   end
 end
-
-package "#{node['haskell-platform']['package_name']}"
