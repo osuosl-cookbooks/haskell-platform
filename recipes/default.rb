@@ -27,4 +27,6 @@ when 'rhel'
   end
 end
 
-package "#{node['haskell-platform']['package_name']}"
+package node['haskell-platform']['package_name'] do
+  version node['haskell-platform']['version'] if node['haskell-platform']['version']
+end
