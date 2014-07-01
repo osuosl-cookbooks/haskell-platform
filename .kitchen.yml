@@ -22,3 +22,12 @@ suites:
     attributes:
       haskell-platform:
         repo_source: "justhub"
+  - name: justhub-version
+    run_list:
+      - apt::default
+      - recipe[haskell-platform::default]
+    excludes: [ "ubuntu-12.04" ]
+    attributes:
+      haskell-platform:
+        repo_source: "justhub"
+        version: "1-4.0.el6"
