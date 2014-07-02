@@ -27,6 +27,8 @@ when 'rhel'
   end
 end
 
-package node['haskell-platform']['package_name'] do
-  version node['haskell-platform']['version'] if node['haskell-platform']['version']
+node['haskell-platform']['package_name'].each do |pkg|
+  package pkg do
+    version node['haskell-platform']['version'] if node['haskell-platform']['version']
+  end
 end

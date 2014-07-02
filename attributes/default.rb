@@ -20,11 +20,14 @@ default['haskell-platform']['repo_source'] = "epel"
 
 if node['haskell-platform']['repo_source'] == "justhub"
   if node['platform_family'] == "rhel"
-    default['haskell-platform']['package_name'] = "haskell"
+    # Order here is important. haskell-min needs to be installed before the
+    # haskell meta package to ensure the correct version of ghc is installed (if
+    # requested)
+    default['haskell-platform']['package_name'] = %w[ haskell-min haskell ]
   else
-    default['haskell-platform']['package_name'] = "haskell-platform"
+    default['haskell-platform']['package_name'] = %w[ haskell-platform ]
   end
 else
-  default['haskell-platform']['package_name'] = "haskell-platform"
+  default['haskell-platform']['package_name'] = %W[ haskell-platform ]
 end
 default['haskell-platform']['version'] = nil
