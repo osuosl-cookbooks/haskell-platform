@@ -6,3 +6,6 @@ include Serverspec::Helper::DetectOS
 describe package('haskell') do
     it { should be_installed }
 end
+describe file('/usr/bin/ghc') do
+    it { should be_executable }
+end
