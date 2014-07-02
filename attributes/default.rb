@@ -28,6 +28,6 @@ if node['haskell-platform']['repo_source'] == "justhub"
     default['haskell-platform']['package_name'] = %w[ haskell-platform ]
   end
 else
-  default['haskell-platform']['package_name'] = %W[ haskell-platform ]
+  default['haskell-platform']['package_name'] = %w[ haskell-platform ]
 end
 default['haskell-platform']['version'] = nil
