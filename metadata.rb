@@ -13,3 +13,6 @@ end
 depends          'apt'
 depends          'yum'
 depends          'yum-epel'
+
+supports         'centos', '~> 6'
+supports         'ubuntu', '12.04'

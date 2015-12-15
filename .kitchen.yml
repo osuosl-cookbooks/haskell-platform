@@ -1,33 +1,29 @@
 ---
-driver:
-  name: vagrant
-
 provisioner:
   name: chef_solo
-
-platforms:
-  - name: ubuntu-12.04
-  - name: centos-6.4
+  attributes:
+    omnibus_updater:
+      disabled: true
 
 suites:
   - name: default
     run_list:
       - apt::default
       - recipe[haskell-platform::default]
-    attributes:
   - name: justhub
     run_list:
       - apt::default
       - recipe[haskell-platform::default]
     attributes:
       haskell-platform:
-        repo_source: "justhub"
+        repo_source: justhub
   - name: justhub-version
     run_list:
       - apt::default
       - recipe[haskell-platform::default]
-    excludes: [ "ubuntu-12.04" ]
+    excludes:
+      - ubuntu-12.04
     attributes:
       haskell-platform:
-        repo_source: "justhub"
-        version: "1-4.0.el6"
+        repo_source: justhub
+        version: 1-4.0.el6
