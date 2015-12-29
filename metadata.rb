@@ -14,5 +14,5 @@ depends          'apt'
 depends          'yum'
 depends          'yum-epel'
 
-supports         'centos', '~> 6'
+supports         'centos', '~> 6.0'
 supports         'ubuntu', '12.04'
